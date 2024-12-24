@@ -5,6 +5,8 @@ import (
 	"net"
 )
 
+// credits to this tutorial: https://medium.com/@viktordev/socket-programming-in-go-write-a-simple-tcp-client-server-c9609edf3671
+
 func main() {
 	// Listen for incoming connections on port 8080
 	ln, err := net.Listen("tcp", ":8080")
