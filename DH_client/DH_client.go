@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Diffie-Hellman-Golang/utils"
 	"fmt"
 	"math/big"
 	"net"
@@ -21,9 +22,9 @@ func NewClient(con net.Conn, size int) *dh_client {
 	return &dh_client{
 		connection: con,
 		key_size:   size,
-		g:          *primeGen(size),
+		g:          *utils.PrimeGen(size),
 		p:          *new(big.Int),
-		a:          *primeGen(size),
+		a:          *utils.PrimeGen(size),
 		A:          *new(big.Int),
 		B:          *new(big.Int),
 		key:        *new(big.Int),
