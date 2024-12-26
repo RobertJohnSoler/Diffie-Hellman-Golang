@@ -5,7 +5,7 @@ import (
 	"math/big"
 )
 
-func genRandBigInt1(bit_len int) *big.Int {
+func GenRandBigInt1(bit_len int) *big.Int {
 	byte_len := (bit_len + 7) / 8
 	rand_bytes := make([]byte, byte_len)
 	rand.Read(rand_bytes)
@@ -14,7 +14,7 @@ func genRandBigInt1(bit_len int) *big.Int {
 	return randBigInt
 }
 
-func genRandBigInt2(bit_len int) *big.Int {
+func GenRandBigInt2(bit_len int) *big.Int {
 	x := big.NewInt(2)
 	y := big.NewInt(int64(bit_len))
 	max := new(big.Int)
@@ -23,7 +23,7 @@ func genRandBigInt2(bit_len int) *big.Int {
 	return randBigInt
 }
 
-func primeCheck(number *big.Int) bool {
+func PrimeCheck(number *big.Int) bool {
 	prime := false
 	s := 150
 
@@ -53,9 +53,9 @@ func primeCheck(number *big.Int) bool {
 }
 
 func PrimeGen(size int) *big.Int {
-	rand_num := genRandBigInt1(size)
+	rand_num := GenRandBigInt1(size)
 	for {
-		if primeCheck(rand_num) == true {
+		if PrimeCheck(rand_num) == true {
 			break
 		} else {
 			rand_num = new(big.Int).Add(rand_num, big.NewInt(1))
